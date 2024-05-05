@@ -4,12 +4,17 @@ import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
+//the HttpServlet is an abstract class that provides methods, such as doGet and doPost
+//for handling the HTTP requests
 public class TemperatureConverter extends HttpServlet {
+    //this doGet method is called by the server and used to handle a GET request.
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //This line sets the content type of the response to "text/html", which tells the browser
+        //that the data coming from the server is in HTML format.
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter(); //This line gets a PrintWriter object that can send character text to the client.
         String title = "Temperature Converter";
 
         double celsius = Double.parseDouble(request.getParameter("celsius"));
